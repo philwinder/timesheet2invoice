@@ -45,8 +45,9 @@ def main(csv_file, columns, datecolumn, hourscolumn, dateformat):
 
     od = collections.OrderedDict(sorted(weekList.items()))
 
-    click.echo("%s\t%s\t%s" % ('Week', hourscolumn, 'Notes'))
+    click.echo("%s\t%s\t%s\t%s" % (hourscolumn, 'Week', 'Date', 'Notes'))
     for week in od:
-        click.echo("%s\t%s\t%s" % (week, od[week][0], od[week][1]))
+        date = datetime.datetime.strptime("2016-" + str(week-1) + '-0', "%Y-%W-%w").strftime('%d/%m/%Y')
+        click.echo("%s %s\t%s\t%s\t%s" % (od[week][0], 'Week', week, date, od[week][1]))
 
 main()
