@@ -47,7 +47,7 @@ def main(csv_file, columns, datecolumn, hourscolumn, dateformat):
 
     click.echo("%s\t%s\t%s\t%s" % (hourscolumn, 'Week', 'Date', 'Notes'))
     for week in od:
-        date = datetime.datetime.strptime("2016-" + str(week-1) + '-0', "%Y-%W-%w").strftime('%d/%m/%Y')
+        date = datetime.datetime.strptime("2017-" + str(week) + '-1', "%Y-%W-%w").strftime('%d/%m/%Y')
         click.echo("%s %s\t%s\t%s\t%s" % (od[week][0], 'Week', week, date, od[week][1]))
 
 main()
